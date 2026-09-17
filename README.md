@@ -1,0 +1,2 @@
+# A-BadUSB-that-downloads-a-video-via-a-link-and-plays-it-in-full-screen-mode-at-maximum-volume.
+This code is designed for the ESP32-S3: when the module is connected to a computer, it immediately opens the command prompt, sets the volume to maximum, downloads a video file from the internet using your link, plays it in full-screen mode, and then deletes the file (without emptying the Recycle Bin). The code is written in C using the Arduino IDE.
